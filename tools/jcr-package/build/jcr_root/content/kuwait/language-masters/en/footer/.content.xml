@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent">
+    <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/under-development&quot;&gt;سياسة الخصوصية&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+      </section>
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;&lt;a href&#x3D;&quot;https://instagram.com/mockuwait&quot;&gt;&lt;img src&#x3D;&quot;images/instagram.png&quot; alt&#x3D;&quot;Instagram&quot;&gt;&lt;/a&gt; &lt;a href&#x3D;&quot;https://x.com/mockuwait&quot;&gt;&lt;img src&#x3D;&quot;images/twitter.png&quot; alt&#x3D;&quot;Twitter&quot;&gt;&lt;/a&gt;&lt;/p&gt;"/>
+      </section_1>
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;p&gt;جميع الحقوق محفوظة لدى وزارة المواصلات - دولة الكويت 2026 ©&lt;/p&gt;"/>
+      </section_2>
+    </root>
+  </jcr:content>
+</jcr:root>

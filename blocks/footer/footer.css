@@ -1,41 +1,58 @@
+/* Ministry of Communications footer — RTL, black bar with white text */
+
 footer {
-  background-color: var(--dark-color);
-  font-size: var(--body-font-size-xs);
-  font-family: var(--light-font-family);
-  background-color: var(--dark-color-opacity);
-  background-color: #000;
   width: 100%;
-  z-index: 2;
-  color: #ffffff;
+  background-color: #000;
+  color: #fff;
+  font-size: var(--body-font-size-xs, 14px);
+  direction: rtl;
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 footer .footer p {
   margin: 0;
 }
 
-footer .footer img {
-  width: 100px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
 footer .footer a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
 }
 
 footer .footer a:hover {
-  color: var(--main-accent-color);
+  color: var(--main-accent-color, #d9c9ff);
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 50px 32px;
-  }
+/* Privacy / policy links */
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+}
+
+/* Social icons row */
+footer .footer p a img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-inline-start: 12px;
+}
+
+/* Copyright line */
+footer .footer > div:last-child {
+  border-top: 1px solid rgb(255 255 255 / 15%);
+  justify-content: center;
+  text-align: center;
+  font-size: var(--body-font-size-xs, 13px);
 }

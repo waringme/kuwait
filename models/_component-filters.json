@@ -13,6 +13,10 @@
       "button",
       "button",
       "cards",
+      "cards-news",
+      "cards-service",
+      "cards-links",
+      "hero-home",
       "carousel",
       "columns",
       "contentfragment",
@@ -42,6 +46,24 @@
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "cards-news",
+    "components": [
+      "card-news"
+    ]
+  },
+  {
+    "id": "cards-service",
+    "components": [
+      "card-service"
+    ]
+  },
+  {
+    "id": "cards-links",
+    "components": [
+      "card-links"
     ]
   },
   {

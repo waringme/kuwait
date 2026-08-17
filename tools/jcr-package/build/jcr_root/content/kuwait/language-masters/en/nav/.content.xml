@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="cq:Page">
+  <jcr:content cq:template="/libs/core/franklin/templates/page" sling:resourceType="core/franklin/components/page/v1/page" jcr:primaryType="cq:PageContent">
+    <root jcr:primaryType="nt:unstructured" sling:resourceType="core/franklin/components/root/v1/root">
+      <section sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <button sling:resourceType="core/franklin/components/button/v1/button" jcr:primaryType="nt:unstructured" link="/ar" linkText=""/>
+      </section>
+      <section_1 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/home&quot;&gt;الصفحة الرئيسية&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/news&quot;&gt;الأخبار&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/contact-us&quot;&gt;اتصل بنا&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/about-moc&quot;&gt;نبذة عن الوزارة&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/%D9%82%D9%88%D8%A7%D9%86%D9%8A%D9%86-%D9%88%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA&quot;&gt;قوانين وتشريعات&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/practices-and-tenderss&quot;&gt;ممارسات ومناقصات ومزايدات&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/ministry-office-sectors&quot;&gt;قطاعات الوزارة&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar/ministries-centers&quot;&gt;مراكز الوزارة&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+      </section_1>
+      <section_2 sling:resourceType="core/franklin/components/section/v1/section" jcr:primaryType="nt:unstructured" model="section" modelFields="[name,style]">
+        <text sling:resourceType="core/franklin/components/text/v1/text" jcr:primaryType="nt:unstructured" text="&lt;ul&gt;
+                    &lt;li&gt;&lt;a href&#x3D;&quot;/ar&quot;&gt;&lt;img src&#x3D;&quot;images/kuwait-flag.png&quot; alt&#x3D;&quot;Kuwait Flag&quot;&gt; العربية&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;"/>
+      </section_2>
+    </root>
+  </jcr:content>
+</jcr:root>
