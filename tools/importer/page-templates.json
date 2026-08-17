@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://moc.gov.kw/ar"
+      ],
+      "coverageGaps": [],
+      "description": "Ministry of Communications homepage: hero, news listing, e-services cards, and important links.",
+      "blocks": [
+        {
+          "name": "hero-home",
+          "instances": [
+            "#high-impact-hero"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            ".swiper-wrapper.news-relocated"
+          ]
+        },
+        {
+          "name": "cards-service",
+          "instances": [
+            "div.space-y-14 > div:nth-of-type(1)"
+          ]
+        },
+        {
+          "name": "cards-links",
+          "instances": [
+            "div.space-y-14 > div:nth-of-type(2)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc3",
+          "name": "main-content",
+          "selector": "body > article.relative.h-full.w-full",
+          "style": null,
+          "blocks": [
+            "hero-home",
+            "cards-news",
+            "cards-service",
+            "cards-links"
+          ],
+          "defaultContent": [
+            "div.space-y-14 > div:nth-of-type(1) h2",
+            "div.space-y-14 > div:nth-of-type(2) h2"
+          ]
+        }
+      ]
+    }
+  ]
+}

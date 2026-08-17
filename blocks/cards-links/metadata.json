@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-links",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-17T18:47:52.297Z",
+  "sourceContext": {
+    "originUrl": "https://moc.gov.kw/ar",
+    "originPage": "Ministry of Communications homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "link-tiles",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "repeating text link tile, first emphasized"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "important-links tile rows",
+      "quick text link groups"
+    ],
+    "notSuitableFor": [
+      "image cards",
+      "data tables"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/ar"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-17T18:47:52.297Z"
+  }
+}

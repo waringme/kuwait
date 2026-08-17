@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://moc.gov.kw/ar",
+  "path": "ar",
+  "timestamp": "2026-08-17T19:15:50.938Z",
+  "title": "وزارة المواصلات | دولة الكويت - الخدمات الإلكترونية والأخبار",
+  "template": "home",
+  "blocks": [
+    "hero-home",
+    "cards-news",
+    "cards-service",
+    "cards-links"
+  ]
+}

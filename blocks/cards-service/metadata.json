@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-service",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-17T18:47:52.297Z",
+  "sourceContext": {
+    "originUrl": "https://moc.gov.kw/ar",
+    "originPage": "Ministry of Communications homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "service-tiles",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "repeating square image + overlaid linked title"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "e-service/quick-link tile grids",
+      "image-led navigation cards"
+    ],
+    "notSuitableFor": [
+      "text-only link lists",
+      "long-form article cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/ar"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-17T18:47:52.297Z"
+  }
+}

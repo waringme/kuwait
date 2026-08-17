@@ -1,0 +1,37 @@
+{
+  "variantName": "hero-home",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-17T18:47:52.297Z",
+  "sourceContext": {
+    "originUrl": "https://moc.gov.kw/ar",
+    "originPage": "Ministry of Communications homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "wide",
+    "purpose": "home-hero",
+    "imagePattern": "video"
+  },
+  "contentPattern": {
+    "structure": "video background + optional headline"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "government/institutional homepages",
+      "landing pages needing a full-bleed video banner"
+    ],
+    "notSuitableFor": [
+      "content pages needing a small static image header",
+      "pages with no hero media"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/ar"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-17T18:47:52.297Z"
+  }
+}

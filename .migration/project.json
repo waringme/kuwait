@@ -1,0 +1,15 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "kuwait": {
+      "previewOrg": "waringme",
+      "previewSite": "kuwait",
+      "contentHostUrl": "author-p147324-e2050468.adobeaemcloud.com",
+      "aemSitePath": "/content/kuwait",
+      "aemAssetsFolderPath": "/content/dam/kuwait",
+      "aemSiteName": "kuwait",
+      "aemSiteTitle": "kuwait",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

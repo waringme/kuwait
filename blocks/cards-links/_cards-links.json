@@ -1,0 +1,84 @@
+{
+  "definitions": [
+    {
+      "title": "Cards Links",
+      "id": "cards-links",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Cards Links",
+              "filter": "cards-links"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Cards Links Item",
+      "id": "card-links",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Cards Links Item",
+              "model": "card-links"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "card-links",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "ctastyle",
+          "label": "CTA Style",
+          "valueType": "string",
+          "value": "button",
+          "options": [
+            {
+              "name": "Primary Button",
+              "value": "button"
+            },
+            {
+              "name": "Secondary Button",
+              "value": "button-secondary"
+            },
+            {
+              "name": "Dark Button",
+              "value": "button-dark"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "cards-links",
+      "components": [
+        "card-links"
+      ]
+    }
+  ]
+}

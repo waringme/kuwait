@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-17T18:47:52.297Z",
+  "sourceContext": {
+    "originUrl": "https://moc.gov.kw/ar",
+    "originPage": "Ministry of Communications homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "news-list",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "repeating title-link + date, no image"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "news/announcement listings",
+      "ticker-style dated link lists"
+    ],
+    "notSuitableFor": [
+      "image-led feature grids",
+      "single promotional teasers"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/ar"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-17T18:47:52.297Z"
+  }
+}

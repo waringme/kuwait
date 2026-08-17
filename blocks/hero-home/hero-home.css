@@ -1,0 +1,665 @@
+/* --------------------------
+   Base Hero Layout
+--------------------------- */
+.hero-home-container .hero-home-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-home {
+  position: relative;
+  padding: 40px 24px;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Ensure all direct child divs stay within the hero-home bounds */
+.hero-home > div {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* --------------------------
+   Headings & Paragraphs
+--------------------------- */
+.hero-home h1,
+.hero-home h2,
+.hero-home h3,
+.hero-home h4,
+.hero-home h5,
+.hero-home h6,
+.hero-home p {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--text-light);
+  text-align: center;
+  font-family: var(--black-font-family);
+}
+
+/* Special underline (only for h1 by default) */
+.hero-home h1::after {
+  background-color: var(--main-accent-color);
+  content: "";
+  display: block;
+  height: 5px;
+  margin: 20px auto 30px;
+  width: 128px;
+  transition: width .4s ease-in-out;
+}
+
+/* Left-aligned layouts: the title underline hugs the left like the title. */
+.hero-home.image-left h1::after,
+.hero-home.image-right h1::after,
+.hero-home.image-background-text-left h1::after,
+.hero-home.image-background-text-right h1::after {
+  margin-left: 0;
+}
+
+/* Remove underline when class applied */
+.hero-home.removeunderline h1::after,
+.hero-home.removeunderline h2::after,
+.hero-home.removeunderline h3::after,
+.hero-home.removeunderline h4::after,
+.hero-home.removeunderline h5::after,
+.hero-home.removeunderline h6::after {
+  display: none;
+}
+
+/* --------------------------
+   Hero Background Image
+--------------------------- */
+.hero-home picture {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  box-sizing: border-box;
+}
+
+.hero-home img {
+  object-fit: cover;
+  object-position: left;
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------
+   Hero Background Video
+--------------------------- */
+video.hero-home-video-bg {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* For side-by-side layouts the video sits in-flow */
+.hero-home.image-left video.hero-home-video-bg,
+.hero-home.image-right video.hero-home-video-bg,
+.hero-home.image-top video.hero-home-video-bg,
+.hero-home.image-bottom video.hero-home-video-bg {
+  position: relative;
+  inset: auto;
+  min-height: 400px;
+}
+
+/* Ensure the asset slot div sizes correctly when holding video */
+.hero-home.hero-home-video.image-left > div:first-child,
+.hero-home.hero-home-video.image-right > div:first-child {
+  flex: 0 0 50%;
+  overflow: hidden;
+}
+
+.hero-home.hero-home-video.image-top > div:first-child,
+.hero-home.hero-home-video.image-bottom > div:first-child {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* --------------------------
+   Buttons
+--------------------------- */
+
+
+/* Primary CTA */
+.hero-home-wrapper .button-container.cta-button a.button {
+  background-color: var(--main-accent-color);
+  border: 2px solid var(--main-accent-color);
+}
+
+.hero-home-wrapper .button-container.cta-button a.button::after {
+  content: "\f105";
+  font-family: 'Font Awesome 5 Solid';
+  font-size: 20px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+  color: var(--text-light);
+}
+
+.hero-home-wrapper .button-container.cta-button a.button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-light) !important;
+  border-color: var(--text-light) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+.hero-home-wrapper .button-container.cta-button a.button:hover::after {
+  color: var(--text-light) !important;
+  transform: translateX(2px);
+}
+
+/* Secondary CTA */
+.hero-home-wrapper .button-container.cta-button-secondary a.button {
+  background: transparent;
+  border: 2px solid var(--main-accent-color);
+  color: var(--text-light);
+}
+
+.hero-home-wrapper .button-container.cta-button-secondary a.button::after {
+  content: "\f105";
+  font-family: 'Font Awesome 5 Solid';
+  font-size: 20px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+  color: var(--text-light);
+}
+
+.hero-home-wrapper .button-container.cta-button-secondary a.button:hover {
+  background-color: var(--main-accent-color);
+  color: var(--text-light);
+}
+
+.hero-home-wrapper .button-container.cta-button-secondary a.button:hover::after {
+  color: var(--text-dark);
+  transform: translateX(2px);
+}
+
+/* Accessibility */
+.hero-home-wrapper .button-container a.button:focus {
+  outline: 2px solid var(--main-accent-color);
+  outline-offset: 2px;
+}
+
+/* Minimal variation */
+.hero-home .button-container.cta-minimal a.button::after {
+  margin-left: 4px;
+}
+
+/* --------------------------
+   Layout Variations
+--------------------------- */
+.hero-home.image-left,
+.hero-home.image-right,
+.hero-home.image-top,
+.hero-home.image-bottom {
+  gap: 40px;
+  padding: 0;
+  min-height: auto;
+}
+
+
+.hero-home.image-left {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.hero-home.image-right {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.hero-home.image-top {
+  flex-direction: column;
+}
+.hero-home.image-bottom {
+  flex-direction: column-reverse;
+}
+
+/* Image Background Text Left - Text overlaid on background image, left-aligned */
+.hero-home.image-background-text-left {
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  padding: 60px 40px;
+}
+
+.hero-home.image-background-text-left > div {
+  text-align: left;
+  max-width: min(600px, 100%);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Image Background Text Right - Text overlaid on background image, right-aligned */
+.hero-home.image-background-text-right {
+  justify-content: flex-end;
+  align-items: center;
+  text-align: left;
+  padding: 60px 40px;
+}
+
+.hero-home.image-background-text-right > div {
+  text-align: left;
+  max-width: min(600px, 100%);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hero-home.image-left picture,
+.hero-home.image-right picture,
+.hero-home.image-top picture,
+.hero-home.image-bottom picture {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-home.image-left > div:first-child picture,
+.hero-home.image-right > div:first-child picture {
+  height: 100%;
+  width: 100%;
+}
+
+.hero-home.image-top picture,
+.hero-home.image-bottom picture {
+  width: 100%;
+  height: 400px;
+}
+
+/* Text align adjustments */
+.hero-home.image-left > div:first-child,
+.hero-home.image-right > div:first-child {
+  flex: 0 0 50%;
+}
+
+.hero-home.image-left > div:nth-child(2),
+.hero-home.image-right > div:nth-child(2) {
+  flex: 0 0 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.hero-home.image-right > div:nth-child(2) {
+  padding-left: 80px;
+}
+
+picture {
+    line-height: 0;
+}
+/* Box shadow for layout variations */
+.hero-home.image-left,
+.hero-home.image-right,
+.hero-home.image-top,
+.hero-home.image-bottom {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.hero-home.image-left h2,
+.hero-home.image-left h3,
+.hero-home.image-left h4,
+.hero-home.image-left h5,
+.hero-home.image-left h6,
+.hero-home.image-left p,
+.hero-home.image-right h2,
+.hero-home.image-right h3,
+.hero-home.image-right h4,
+.hero-home.image-right h5,
+.hero-home.image-right h6,
+.hero-home.image-right p {
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  color: var(--text-color);
+    text-shadow: unset;
+}
+.hero-home.image-left h1,.hero-home.image-right h1{
+  color: var(--text-color);
+  text-shadow: unset;
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.hero-home.image-background-text-left h1,
+.hero-home.image-background-text-left h2,
+.hero-home.image-background-text-left h3,
+.hero-home.image-background-text-left h4,
+.hero-home.image-background-text-left h5,
+.hero-home.image-background-text-left h6,
+.hero-home.image-background-text-left p {
+  text-align: left;
+  margin: 0 0 20px 0;
+  width: 100%;
+  max-width: none;
+  color: var(--text-light);
+}
+
+.hero-home.image-background-text-left .button-container {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.hero-home.image-background-text-right h1,
+.hero-home.image-background-text-right h2,
+.hero-home.image-background-text-right h3,
+.hero-home.image-background-text-right h4,
+.hero-home.image-background-text-right h5,
+.hero-home.image-background-text-right h6,
+.hero-home.image-background-text-right p {
+  text-align: left;
+  margin: 0 0 20px 0;
+  width: 100%;
+  max-width: none;
+  color: var(--text-light);
+}
+
+.hero-home.image-background-text-right .button-container {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.hero-home.image-top h1,
+.hero-home.image-top h2,
+.hero-home.image-top h3,
+.hero-home.image-top h4,
+.hero-home.image-top h5,
+.hero-home.image-top h6,
+.hero-home.image-top p,
+.hero-home.image-bottom h1,
+.hero-home.image-bottom h2,
+.hero-home.image-bottom h3,
+.hero-home.image-bottom h4,
+.hero-home.image-bottom h5,
+.hero-home.image-bottom h6,
+.hero-home.image-bottom p{
+  text-align: center;
+  max-width: none;
+  color: var(--text-color);
+    text-shadow: unset;
+}
+/* --------------------------
+   Responsive
+--------------------------- */
+@media (width >= 900px) {
+  .hero-home { padding: 40px 32px; }
+  .hero-home-wrapper a.button { padding: 14px 28px; font-size: 18px; }
+}
+
+@media (width < 1024px) {
+  .hero-home { min-height: 650px; }
+
+  .hero-home.image-background-text-left {
+    padding: 50px 30px;
+  }
+
+  .hero-home.image-background-text-right {
+    padding: 50px 30px;
+  }
+
+  .hero-home.image-background-text-left > div,
+  .hero-home.image-background-text-right > div {
+    max-width: min(600px, calc(100% - 20px));
+  }
+}
+
+@media (width < 768px) {
+  .hero-home { min-height: 600px; }
+
+  .hero-home.image-left,
+  .hero-home.image-right {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-home.image-left picture,
+  .hero-home.image-right picture {
+    width: 100%;
+    height: 300px;
+    flex: none;
+  }
+
+  .hero-home.hero-home-video.image-left video.hero-home-video-bg,
+  .hero-home.hero-home-video.image-right video.hero-home-video-bg {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .hero-home.image-left > div:last-child,
+  .hero-home.image-right > div:last-child {
+    text-align: center;
+  }
+
+  .hero-home.image-left h2,
+  .hero-home.image-left h3,
+  .hero-home.image-left h4,
+  .hero-home.image-left h5,
+  .hero-home.image-left h6,
+  .hero-home.image-left p,
+  .hero-home.image-right h2,
+  .hero-home.image-right h3,
+  .hero-home.image-right h4,
+  .hero-home.image-right h5,
+  .hero-home.image-right h6,
+  .hero-home.image-right p {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-home.image-top picture,
+  .hero-home.image-bottom picture {
+    height: 250px;
+  }
+
+  .hero-home.hero-home-video.image-top > div:first-child,
+  .hero-home.hero-home-video.image-bottom > div:first-child {
+    height: 250px;
+  }
+
+  .hero-home.hero-home-video.image-top video.hero-home-video-bg,
+  .hero-home.hero-home-video.image-bottom video.hero-home-video-bg {
+    min-height: 250px;
+  }
+  
+  /* Mobile adjustments for image-background-text-left */
+  .hero-home.image-background-text-left {
+    padding: 40px 16px;
+    text-align: center;
+  }
+
+  .hero-home.image-background-text-left > div {
+    max-width: 100%;
+  }
+
+  .hero-home.image-background-text-left h1,
+  .hero-home.image-background-text-left h2,
+  .hero-home.image-background-text-left h3,
+  .hero-home.image-background-text-left h4,
+  .hero-home.image-background-text-left h5,
+  .hero-home.image-background-text-left h6,
+  .hero-home.image-background-text-left p {
+    text-align: center;
+  }
+
+  .hero-home.image-background-text-left .button-container {
+    text-align: center;
+  }
+
+  /* Mobile adjustments for image-background-text-right */
+  .hero-home.image-background-text-right {
+    padding: 40px 16px;
+    text-align: center;
+  }
+
+  .hero-home.image-background-text-right > div {
+    max-width: 100%;
+  }
+
+  .hero-home.image-background-text-right h1,
+  .hero-home.image-background-text-right h2,
+  .hero-home.image-background-text-right h3,
+  .hero-home.image-background-text-right h4,
+  .hero-home.image-background-text-right h5,
+  .hero-home.image-background-text-right h6,
+  .hero-home.image-background-text-right p,
+  .hero-home.image-background-text-right .button-container {
+    text-align: center;
+  }
+
+  .hero-home.image-background-text-right .button-container {
+    text-align: center;
+  }
+
+  /* Default overlay — constrain text on mobile */
+  .hero-home.block.overlay .hero-home-text {
+    max-width: calc(100% - 32px);
+    padding: 16px;
+  }
+
+  /* Side-by-side layouts — text panel goes full width on mobile */
+  .hero-home.image-left > div:nth-child(2),
+  .hero-home.image-right > div:nth-child(2) {
+    flex: 1 1 auto;
+    padding: 24px 16px;
+  }
+}
+
+@media (width < 480px) {
+  .hero-home {
+    min-height: 400px;
+    padding: 24px 12px;
+  }
+
+  .hero-home.image-background-text-left,
+  .hero-home.image-background-text-right {
+    padding: 24px 12px;
+  }
+
+  .hero-home h1 { font-size: 1.6rem; }
+  .hero-home h2 { font-size: 1.3rem; }
+}
+
+/* --------------------------
+   Background Style Variations
+--------------------------- */
+
+/* Theme Dark Background Style — applies to the text box only, never the asset */
+.hero-home.theme-dark .hero-home-text {
+  background: var(--dark-color);
+}
+
+.hero-home.theme-dark h1,
+.hero-home.theme-dark h2,
+.hero-home.theme-dark h3,
+.hero-home.theme-dark h4,
+.hero-home.theme-dark h5,
+.hero-home.theme-dark h6,
+.hero-home.theme-dark p {
+  color: var(--light-color);
+}
+
+.hero-home.theme-dark .button-container a.button {
+  color: var(--light-color);
+  border-color: var(--light-color);
+}
+
+/* Theme Light Background Style — applies to the text box only, never the asset */
+.hero-home.theme-light .hero-home-text {
+  background: var(--light-color);
+}
+
+.hero-home.theme-light h1,
+.hero-home.theme-light h2,
+.hero-home.theme-light h3,
+.hero-home.theme-light h4,
+.hero-home.theme-light h5,
+.hero-home.theme-light h6,
+.hero-home.theme-light p {
+  color: var(--dark-color);
+}
+
+.hero-home.theme-light .button-container a.button {
+  color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+/* Overlay text box — targets .hero-home-text class set by JS, so it is always
+   the correct div regardless of whether a <video> was prepended */
+.hero-home.block.overlay .hero-home-text,
+.hero-home.image-background-text-left .hero-home-text,
+.hero-home.image-background-text-right .hero-home-text {
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Default semi-transparent backdrop for the text box — only when no Text
+   Background Style is chosen, so Theme Dark/Light can take over the box bg. */
+.hero-home.block.overlay:not(.theme-dark):not(.theme-light) .hero-home-text,
+.hero-home.image-background-text-left:not(.theme-dark):not(.theme-light) .hero-home-text,
+.hero-home.image-background-text-right:not(.theme-dark):not(.theme-light) .hero-home-text {
+  background: rgb(0 0 0 / 50%);
+}
+
+/*button theme hero-home specific*/
+.hero-home.block.overlay .button-container.cta-link a.button,.hero-home.image-background-text-left .button-container.cta-link a.button,.hero-home.image-background-text-right .button-container.cta-link a.button {
+  color: var(--text-light);
+}
+
+.hero-home.block.overlay .button-container.cta-link a.button::after  ,.hero-home.image-background-text-left .button-container.cta-link a.button::after,.hero-home.image-background-text-right .button-container.cta-link a.button::after  {
+  color: var(--text-light);
+}
+
+/* --------------------------
+   Badge / Highlight pill
+--------------------------- */
+.hero-home .hero-home__badge {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  /* Centered by default so it matches the centered title in the overlay,
+     asset-top and asset-bottom layouts. Auto side margins center a
+     fit-content block; the left-aligned layouts override this below. */
+  margin: 0 auto 12px;
+  padding: 7px 18px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Left-aligned layouts: the badge hugs the left edge like the title/text. */
+.hero-home.image-left .hero-home__badge,
+.hero-home.image-right .hero-home__badge,
+.hero-home.image-background-text-left .hero-home__badge,
+.hero-home.image-background-text-right .hero-home__badge {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Light text-panel layouts (dark title): badge uses dark text + a faint
+   dark chip to stay legible. */
+.hero-home.image-left .hero-home__badge,
+.hero-home.image-right .hero-home__badge,
+.hero-home.image-top .hero-home__badge,
+.hero-home.image-bottom .hero-home__badge {
+  color: var(--text-color);
+  background: rgba(0, 0, 0, 0.08);
+}
