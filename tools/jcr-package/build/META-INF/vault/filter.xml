@@ -3,4 +3,5 @@
   <filter root="/content/kuwait/language-masters/en/index"/>
   <filter root="/content/kuwait/language-masters/en/nav"/>
   <filter root="/content/kuwait/language-masters/en/footer"/>
+  <filter root="/content/dam/kuwait"/>
 </workspaceFilter>
