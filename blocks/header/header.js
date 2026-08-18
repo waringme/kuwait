@@ -79,6 +79,28 @@ export default async function decorate(block) {
     const brand = document.createElement('div');
     brand.className = 'nav-brand';
     while (brandSection.firstElementChild) brand.append(brandSection.firstElementChild);
+
+    // Ensure a brand logo is present. The authored nav is expected to supply the
+    // ministry logo as an image; when it doesn't (e.g. an empty brand link), fall
+    // back to the bundled ministry logo so the header matches the original site.
+    if (!brand.querySelector('img, picture, svg')) {
+      const logo = document.createElement('img');
+      logo.src = '/icons/moc-logo.svg';
+      logo.alt = 'وزارة المواصلات';
+      logo.className = 'nav-brand-logo';
+      logo.width = 200;
+      logo.height = 56;
+      logo.loading = 'eager';
+      const brandLink = brand.querySelector('a');
+      if (brandLink) {
+        brandLink.classList.remove('button');
+        brandLink.textContent = '';
+        brandLink.append(logo);
+      } else {
+        brand.append(logo);
+      }
+    }
+
     nav.append(brand);
   }
 

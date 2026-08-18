@@ -42,6 +42,20 @@ header nav .nav-brand img {
   width: auto;
 }
 
+header nav .nav-brand .nav-brand-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+/* The original ministry header has no per-link chevron/arrow icon. Suppress the
+   global `a::after` FontAwesome chevron for every link inside the header nav. */
+header nav a::after,
+header nav a.button::after {
+  content: none;
+  display: none;
+}
+
 /* Primary navigation */
 header nav .nav-sections {
   grid-area: sections;
