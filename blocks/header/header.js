@@ -112,11 +112,82 @@ export default async function decorate(block) {
     nav.append(sectionsWrap);
   }
 
-  // Tools: locale selector
+  // Tools: search pill + language/country dropdown (matches moc.gov.kw/ar)
   if (localeSection) {
     const tools = document.createElement('div');
     tools.className = 'nav-tools';
-    while (localeSection.firstElementChild) tools.append(localeSection.firstElementChild);
+
+    // Hold the authored locale content (flag image + language label) so we can
+    // reshape it into a dropdown.
+    const localeHolder = document.createElement('div');
+    while (localeSection.firstElementChild) localeHolder.append(localeSection.firstElementChild);
+
+    // --- Search pill: "بحث" + magnifier, expands to an input on click ---
+    const search = document.createElement('form');
+    search.className = 'nav-search';
+    search.setAttribute('role', 'search');
+    search.action = `/${getLanguage()}/search`;
+    search.method = 'get';
+    search.innerHTML = `
+      <input type="search" name="q" class="nav-search-input" aria-label="بحث" placeholder="بحث" />
+      <button type="submit" class="nav-search-btn" aria-label="بحث">
+        <span class="nav-search-label">بحث</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14Z"/></svg>
+      </button>`;
+    search.querySelector('.nav-search-btn').addEventListener('click', (e) => {
+      if (!search.classList.contains('open')) {
+        e.preventDefault();
+        search.classList.add('open');
+        search.querySelector('.nav-search-input').focus();
+      }
+    });
+    tools.append(search);
+
+    // --- Language / country dropdown ---
+    const flagImg = localeHolder.querySelector('picture, img');
+    const currentLabel = (localeHolder.querySelector('a.button')?.textContent
+      || localeHolder.textContent || 'العربية').trim();
+
+    const langWrap = document.createElement('div');
+    langWrap.className = 'nav-lang';
+
+    const langToggle = document.createElement('button');
+    langToggle.type = 'button';
+    langToggle.className = 'nav-lang-toggle';
+    langToggle.setAttribute('aria-haspopup', 'true');
+    langToggle.setAttribute('aria-expanded', 'false');
+    if (flagImg) langToggle.append(flagImg.cloneNode(true));
+    const langLabel = document.createElement('span');
+    langLabel.className = 'nav-lang-label';
+    langLabel.textContent = currentLabel || 'العربية';
+    langToggle.append(langLabel);
+    const caret = document.createElement('span');
+    caret.className = 'nav-lang-caret';
+    caret.setAttribute('aria-hidden', 'true');
+    langToggle.append(caret);
+
+    const langMenu = document.createElement('ul');
+    langMenu.className = 'nav-lang-menu';
+    langMenu.hidden = true;
+    langMenu.innerHTML = `
+      <li><a href="/ar" lang="ar">العربية</a></li>
+      <li><a href="/en" lang="en">English</a></li>`;
+
+    langToggle.addEventListener('click', () => {
+      const open = langToggle.getAttribute('aria-expanded') === 'true';
+      langToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      langMenu.hidden = open;
+    });
+    document.addEventListener('click', (e) => {
+      if (!langWrap.contains(e.target)) {
+        langToggle.setAttribute('aria-expanded', 'false');
+        langMenu.hidden = true;
+      }
+    });
+
+    langWrap.append(langToggle, langMenu);
+    tools.append(langWrap);
+
     nav.append(tools);
   }
 

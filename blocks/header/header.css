@@ -1,13 +1,16 @@
 /* Ministry of Communications header — RTL flat navigation */
 
-/* Background: same top-to-bottom navy → purple gradient as moc.gov.kw/ar
-   (from rgb(36 58 97) at the top to rgb(109 79 175) at the bottom). */
+/* Background: the moc.gov.kw header photo behind a top-to-bottom navy → purple
+   gradient overlay (navy rgb(36 58 97) at the top, purple rgb(109 79 175) at
+   the bottom), matching the original header. */
 header .nav-wrapper {
-  background-image: linear-gradient(
-    to bottom,
-    #243a61 0%,
-    #6d4faf 100%
-  );
+  position: relative;
+  background-image:
+    linear-gradient(to bottom, rgb(36 58 97 / 82%) 0%, rgb(109 79 175 / 88%) 100%),
+    url('/icons/moc-header-background.png');
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
   background-color: #243a61;
   width: 100%;
   z-index: 20;
@@ -88,38 +91,138 @@ header nav .nav-sections a {
   transition: color 0.2s ease;
 }
 
-/* Tools / locale */
-header nav .nav-tools {
-  grid-area: tools;
-}
-
-header nav .nav-tools ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-header nav .nav-tools a {
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  font-size: var(--body-font-size-s, 15px);
-}
-
 header nav .nav-sections a:hover {
   color: #fff;
 }
 
-header nav .nav-tools img {
+/* Tools / locale */
+header nav .nav-tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Search pill — "بحث" + magnifier, expands to an input on click */
+header nav .nav-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgb(255 255 255 / 20%);
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+header nav .nav-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+header nav .nav-search-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+header nav .nav-search-input {
+  width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  transition: width 0.25s ease;
+}
+
+header nav .nav-search.open .nav-search-input {
+  width: 150px;
+  padding: 2px 4px;
+}
+
+header nav .nav-search-input::placeholder {
+  color: rgb(255 255 255 / 80%);
+}
+
+header nav .nav-search.open .nav-search-label {
+  display: none;
+}
+
+/* Language / country dropdown */
+header nav .nav-lang {
+  position: relative;
+}
+
+header nav .nav-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+header nav .nav-lang-toggle img {
   width: 24px;
   height: 24px;
   border-radius: 2px;
+}
+
+header nav .nav-lang-caret {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentcolor;
+}
+
+header nav .nav-lang .nav-lang-menu {
+  position: absolute;
+  inset-block-start: calc(100% + 6px);
+  inset-inline-start: 0;
+  display: block;
+  min-width: 150px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 20%);
+  z-index: 40;
+}
+
+header nav .nav-lang .nav-lang-menu[hidden] {
+  display: none;
+}
+
+header nav .nav-lang .nav-lang-menu li {
+  margin: 0;
+}
+
+header nav .nav-lang .nav-lang-menu a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #243a61;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+header nav .nav-lang .nav-lang-menu a:hover {
+  background: #f0ecfa;
+  color: #243a61;
 }
 
 /* Hamburger (mobile) */
@@ -166,15 +269,25 @@ header nav .nav-hamburger-icon::after {
   top: 7px;
 }
 
-/* Desktop */
+/* Desktop — two-row layout like the original (flex-col): logo + search/lang
+   on the top row, the full-width centered menu on its own row below. */
 @media (width >= 900px) {
   header nav {
-    grid-template-areas: 'brand sections tools';
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'brand tools'
+      'sections sections';
+    column-gap: 16px;
+    row-gap: 6px;
   }
 
   header nav .nav-hamburger {
     display: none;
+  }
+
+  /* Utilities hug the left edge (RTL end), opposite the logo. */
+  header nav .nav-tools {
+    justify-content: flex-end;
   }
 
   header nav .nav-sections {
