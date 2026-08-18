@@ -1,9 +1,12 @@
 /* Ministry of Communications header — RTL flat navigation */
 
+/* Background: same top-to-bottom navy → purple gradient as moc.gov.kw/ar
+   (from rgb(36 58 97) at the top to rgb(109 79 175) at the bottom). */
 header .nav-wrapper {
   background-image: linear-gradient(
-    rgb(36 58 97 / 60%),
-    rgb(109 79 175 / 80%)
+    to bottom,
+    #243a61 0%,
+    #6d4faf 100%
   );
   background-color: #243a61;
   width: 100%;
@@ -19,7 +22,7 @@ header nav {
   gap: 16px;
   max-width: 1200px;
   margin: auto;
-  padding: 12px 24px;
+  padding: 10px 24px;
   color: #fff;
   direction: rtl;
 }
@@ -37,14 +40,12 @@ header nav .nav-brand {
   align-items: center;
 }
 
-header nav .nav-brand img {
-  height: 56px;
-  width: auto;
-}
-
+header nav .nav-brand img,
 header nav .nav-brand .nav-brand-logo {
-  height: 56px;
-  width: auto;
+  /* Match the original: logo ~320px wide on desktop (responsive below). */
+  width: 300px;
+  max-width: 60vw;
+  height: auto;
   display: block;
 }
 
@@ -76,12 +77,14 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections a {
-  color: #fff;
+  color: rgb(255 255 255 / 70%);
   text-decoration: none;
-  font-weight: 600;
-  font-size: var(--body-font-size-s, 15px);
-  padding: 8px 4px;
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  padding: 8px 12px;
   display: block;
+  border-radius: 4px;
   transition: color 0.2s ease;
 }
 
@@ -110,7 +113,7 @@ header nav .nav-tools a {
 }
 
 header nav .nav-sections a:hover {
-  color: #d9c9ff;
+  color: #fff;
 }
 
 header nav .nav-tools img {
@@ -179,12 +182,20 @@ header nav .nav-hamburger-icon::after {
   }
 
   header nav .nav-sections ul {
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: center;
-    gap: 20px;
+    gap: 4px;
   }
 
   header nav .nav-sections a {
-    padding: 4px 0;
+    padding: 8px 12px;
+  }
+}
+
+/* Smaller logo on mobile, matching the original's w-[130px] compact logo. */
+@media (width < 900px) {
+  header nav .nav-brand img,
+  header nav .nav-brand .nav-brand-logo {
+    width: 150px;
   }
 }
