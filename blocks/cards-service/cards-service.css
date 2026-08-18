@@ -26,12 +26,15 @@
   max-height: 255px;
   overflow: hidden;
   border-radius: 8px;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
   transform-origin: 50% 50%;
 }
 
-.card-link .cards-service li:hover img{
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+/* On hover: zoom in a little and darken slightly. */
+.card-link .cards-service li:hover img,
+.cards-service > ul > li:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.8);
   width: 100%;
 }
 
