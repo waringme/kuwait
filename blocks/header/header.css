@@ -294,14 +294,26 @@ header nav .nav-hamburger-icon::after {
     display: block;
   }
 
+  /* Two rows of four items with a divider line across after the top row. */
   header nav .nav-sections ul {
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: center;
-    gap: 4px;
+    gap: 0;
+  }
+
+  header nav .nav-sections li {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  header nav .nav-sections li:nth-child(-n + 4) {
+    border-bottom: 1px solid rgb(255 255 255 / 30%);
   }
 
   header nav .nav-sections a {
-    padding: 8px 12px;
+    padding: 10px 8px;
   }
 }
 

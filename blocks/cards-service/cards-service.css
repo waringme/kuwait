@@ -25,6 +25,7 @@
   min-height: 255px;
   max-height: 255px;
   overflow: hidden;
+  border-radius: 8px;
   transition: transform 0.4s ease;
   transform-origin: 50% 50%;
 }
@@ -74,6 +75,10 @@
 .cards-service .cards-service-card-image {
   line-height: 0;
   background-color: transparent;
+  /* Rounded corners like the original (Tailwind rounded-md); overflow clips
+     the image and its hover-zoom to the rounded shape. */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .cards-service.gradient .cards-service-card-image {
