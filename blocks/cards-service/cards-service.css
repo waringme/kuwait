@@ -25,16 +25,14 @@
   min-height: 255px;
   max-height: 255px;
   overflow: hidden;
-  border-radius: 8px;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition: transform 0.4s ease;
   transform-origin: 50% 50%;
 }
 
-/* On hover: zoom in a little and darken slightly. */
+/* On hover: zoom the image in a little (the overlay scrim handles darkening). */
 .card-link .cards-service li:hover img,
 .cards-service > ul > li:hover img {
   transform: scale(1.08);
-  filter: brightness(0.8);
   width: 100%;
 }
 
@@ -104,31 +102,42 @@
   padding: 10px 0;
 }
 .cards-service > ul > li {
+  position: relative;
   background: transparent;
   box-shadow: none;
   border: none;
-  border-radius: 0;
+  border-radius: 12px;
+  overflow: hidden;
   padding: 0;
   height: auto;
   min-height: auto;
-  display: inline-flex;
-  flex: 1;
-  flex-direction: column;
+  display: block;
 }
 .cards-service > ul > li .cards-service-card-image {
   position: relative;
   display: block;
-}
-.cards-service > ul > li .cards-service-card-body {
-  display: block;
-  background-color: transparent;
-  padding: 20px;
-  box-sizing: border-box;
-  margin: 0;
+  line-height: 0;
 }
 
-/* No white card background now, so the label sits on the blue page backdrop —
-   use light text to keep it readable. */
+/* Label overlays the image (centered) with a dark scrim that deepens on hover,
+   like the original e-service tiles. */
+.cards-service > ul > li .cards-service-card-body {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  background: rgb(0 0 0 / 32%);
+  transition: background 0.35s ease;
+}
+.cards-service > ul > li:hover .cards-service-card-body {
+  background: rgb(0 0 0 / 55%);
+}
 .cards-service > ul > li .cards-service-card-body,
 .cards-service > ul > li .cards-service-card-body h1,
 .cards-service > ul > li .cards-service-card-body h2,
@@ -137,15 +146,28 @@
 .cards-service > ul > li .cards-service-card-body a {
   color: var(--text-light, #fff);
 }
-.cards-service > ul > li .cards-service-card-body h1 {
+.cards-service > ul > li .cards-service-card-body h1,
+.cards-service > ul > li .cards-service-card-body h2,
+.cards-service > ul > li .cards-service-card-body h3 {
   margin: 0;
-  font-size: 26px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 45%);
+  transition: transform 0.3s ease;
+}
+.cards-service > ul > li:hover .cards-service-card-body h1,
+.cards-service > ul > li:hover .cards-service-card-body h2,
+.cards-service > ul > li:hover .cards-service-card-body h3 {
+  transform: scale(1.06);
+}
+.cards-service > ul > li .cards-service-card-body a {
+  text-decoration: none;
 }
 .cards-service > ul > li .cards-service-card-body p {
-  margin: 10px 0;
-  font-size: 18px;
-  line-height: 26px;
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 22px;
 }
 .cards-service > ul > li .cards-service-card-body p.button-container {
   margin: 0;
