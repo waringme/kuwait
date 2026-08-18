@@ -104,7 +104,7 @@
   padding: 10px 0;
 }
 .cards-service > ul > li {
-  background: var(--background-color) 0 0 no-repeat padding-box;
+  background: transparent;
   box-shadow: none;
   border: none;
   border-radius: 0;
@@ -121,10 +121,21 @@
 }
 .cards-service > ul > li .cards-service-card-body {
   display: block;
-  background-color: var(--background-color);
+  background-color: transparent;
   padding: 20px;
   box-sizing: border-box;
   margin: 0;
+}
+
+/* No white card background now, so the label sits on the blue page backdrop —
+   use light text to keep it readable. */
+.cards-service > ul > li .cards-service-card-body,
+.cards-service > ul > li .cards-service-card-body h1,
+.cards-service > ul > li .cards-service-card-body h2,
+.cards-service > ul > li .cards-service-card-body h3,
+.cards-service > ul > li .cards-service-card-body p,
+.cards-service > ul > li .cards-service-card-body a {
+  color: var(--text-light, #fff);
 }
 .cards-service > ul > li .cards-service-card-body h1 {
   margin: 0;

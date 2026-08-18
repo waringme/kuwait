@@ -316,19 +316,17 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Fixed full-page blue background image, like the original site
-   (original uses a fixed, object-cover <img> at z-[-100]). A fixed ::before
-   is a real viewport-sized layer, which paints reliably where the canvas
-   background does not. */
-body.appear::before {
-  content: "";
+/* Fixed full-page blue background image, like the original site (which uses a
+   fixed, object-cover <img> at z-[-100]). Injected as a real <img> in
+   scripts.js because CSS/canvas backgrounds don't paint reliably here. */
+.page-bg {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   z-index: -1;
-  background-image: url('/icons/moc-background.png');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
   pointer-events: none;
 }
 

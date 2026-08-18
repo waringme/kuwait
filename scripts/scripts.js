@@ -235,6 +235,16 @@ const experimentationConfig = {
   async function loadEager(doc) {
 		setPageLanguage();
 		decorateTemplateAndTheme();
+		// Fixed full-page background image behind all content (like the original site).
+		if (!document.querySelector('.page-bg')) {
+			const pageBg = document.createElement('img');
+			pageBg.className = 'page-bg';
+			pageBg.src = '/icons/moc-background.png';
+			pageBg.alt = '';
+			pageBg.setAttribute('aria-hidden', 'true');
+			pageBg.setAttribute('loading', 'eager');
+			document.body.prepend(pageBg);
+		}
 		await runExperimentation(doc, experimentationConfig);
 		renderWBDataLayer();
 		const main = doc.querySelector('main');
